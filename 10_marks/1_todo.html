@@ -1,0 +1,39 @@
+<input id="task" placeholder="Enter task">
+<button onclick="addTask()">Add</button>
+
+<ul id="list"></ul>
+
+<script>
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+display();
+
+function addTask(){
+  let t = document.getElementById("task").value;
+  tasks.push({text:t, done:false});
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  display();
+}
+
+function toggle(i){
+  tasks[i].done = !tasks[i].done;
+  localStorage.setItem("tasks",JSON.stringify(tasks));
+  display();
+}
+
+function del(i){
+  tasks.splice(i,1);
+  localStorage.setItem("tasks",JSON.stringify(tasks));
+  display();
+}
+
+function display(){
+  document.getElementById("list").innerHTML = tasks
+  .map((t,i)=>`
+    <li style="text-decoration:${t.done?'line-through':''}">
+      ${t.text}
+      <button onclick="toggle(${i})">Done</button>
+      <button onclick="del(${i})">Delete</button>
+    </li>
+  `).join("");
+}
+</script>
