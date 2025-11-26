@@ -21,14 +21,15 @@ document.getElementById("myForm").addEventListener("submit", function(e){
   let pass = document.getElementById("pass").value;
 
   if(name=== ""){
-    error.textContent = "Name cannot be empty"; return;
+    error.textContent = "Name can't be empty";
   }
   if(pass.length < 6){
-    error.textContent = "Password must be at least 6 characters"; return;
+    error.textContent = "Password must be at least 6 characters";
   }
 
-  error.textContent = "Form submitted successfully!";
+  error.textContent = "successfully!";
 });
 </script>
 </body>
 </html>
+
