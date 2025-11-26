@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+  margin: 0%;
+  padding: 0% ;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  background:black;
+  padding: 20px;
+}
+nav a{
+  color: wheat;
+  text-decoration: none;
+  width: 2vw;
+  height:2vh;
+  margin:0 20px;
+}
+.menu{ 
+  display: flex;
+ }
+.hamburger{ 
+  display: none;  
+  color: white; }
+
+@media (max-width: 600px) {
+  .menu { 
+    display: none; 
+    flex-direction: column;
+  }
+  .hamburger { 
+    display: block;
+   }
+  
+}
+</style>
+</head>
+<body>
+<nav>
+  <span class="hamburger">
+    <h1>Hamburger Menu</h1>
+  </span>
+  <div class="menu">
+    <a href="">Home</a>
+    <a href="">About</a>
+    <a href="">Services</a>
+    <a href="">Contact</a>
+  </div>
+</nav>
+</body>
+</html>
