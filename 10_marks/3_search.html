@@ -1,0 +1,24 @@
+<input id="search" onChange="filter()" placeholder="search">
+
+<div id="products"></div>
+
+<script>
+let items = [
+  {name:"laptop", price:1000, category:"Electronics"},
+  {name:"mobile", price:3000, category:"Electronics"},
+  {name:"shirt", price:370, category:"dress"},
+];
+
+function display(list){
+  document.getElementById("products").innerHTML =
+    list.map(i => <p>${i.name} - ₹${i.price}</p>).join("");
+}
+
+display(items);
+
+function filter(){
+  let text = document.getElementById("search").value.toLowerCase();
+  let result = items.filter(i=>i.name.toLowerCase().includes(text));
+  display(result);
+}
+</script>
