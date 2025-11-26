@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input id="search" placeholder="Search">
+
+<div id="products"></div>
+
+<script>
+let items = [
+  {name:"Laptop", price:50000, category:"Electronics"},
+  {name:"Shirt", price:800, category:"Clothing"},
+  {name:"Book", price:300, category:"Books"},
+];
+
+function showProducts(list){
+  document.getElementById("products").innerHTML = 
+  list.map(data)=> {`
+    <div class="card">
+      <h3>${data.name}</h3>
+      <p>${data.price}</p>
+      <p>${data.category}</p>
+    </div>
+  }
+showProducts(items);
+
+document.getElementById("search").onkeyup = function(){
+  let text = this.value.toLowerCase();
+  let filtered = items.filter(p => p.name.toLowerCase().includes(text));
+  showProducts(filtered);
+</script>
+</body>
+</html>
